@@ -1,0 +1,4 @@
+14:37:47.173 [JettyServerThreadPool-43] ERROR d.l.controller.DogControllerImpl - 400Cannot deserialize value of type `dk.lyngby.model.Gender` from String "MALe": not one of the values accepted for Enum class: [FEMALE, MALE]
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 5, column: 16] (through reference chain: dk.lyngby.dto.DogDto["dogGender"])
+14:37:58.558 [JettyServerThreadPool-38] ERROR d.l.controller.DogControllerImpl - 400Cannot deserialize value of type `dk.lyngby.model.Gender` from String "MA": not one of the values accepted for Enum class: [FEMALE, MALE]
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 5, column: 16] (through reference chain: dk.lyngby.dto.DogDto["dogGender"])

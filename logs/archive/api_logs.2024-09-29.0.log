@@ -1,0 +1,23 @@
+11:12:49.226 [main] INFO  dk.lyngby.config.AppConfig - Server started on port 7777
+20:31:22.598 [JettyServerThreadPool-48] ERROR d.lyngby.controller.HotelController - 400Cannot deserialize value of type `java.util.ArrayList<dk.lyngby.model.Room>` from String value (token `JsonToken.VALUE_STRING`)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 4, column: 12] (through reference chain: dk.lyngby.dto.HotelDto["rooms"])
+20:33:07.720 [JettyServerThreadPool-47] ERROR d.lyngby.controller.HotelController - 400Unrecognized field "type" (class dk.lyngby.model.Room), not marked as ignorable (5 known properties: "number", "id", "hotel", "hotelId", "price"])
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 7, column: 16] (through reference chain: dk.lyngby.dto.HotelDto["rooms"]->java.util.ArrayList[0]->dk.lyngby.model.Room["type"])
+20:34:29.120 [JettyServerThreadPool-41] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+20:37:58.431 [main] INFO  dk.lyngby.config.AppConfig - Server started on port 7777
+20:38:02.167 [JettyServerThreadPool-43] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+20:41:09.903 [JettyServerThreadPool-43] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+20:44:43.783 [main] INFO  dk.lyngby.config.AppConfig - Server started on port 7777
+20:44:46.528 [JettyServerThreadPool-43] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+20:45:08.877 [JettyServerThreadPool-38] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+20:46:14.718 [JettyServerThreadPool-36] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+20:51:55.038 [main] INFO  dk.lyngby.config.AppConfig - Server started on port 7777
+20:51:58.388 [JettyServerThreadPool-43] ERROR d.lyngby.controller.HotelController - 400identifier of an instance of dk.lyngby.model.Hotel was altered from 0 to 1
+20:52:30.661 [JettyServerThreadPool-38] ERROR d.lyngby.controller.HotelController - 400identifier of an instance of dk.lyngby.model.Hotel was altered from 0 to 4
+20:54:44.396 [main] INFO  dk.lyngby.config.AppConfig - Server started on port 7777
+21:13:19.935 [JettyServerThreadPool-36] ERROR dk.lyngby.controller.RoomController - 400Cannot construct instance of `dk.lyngby.model.Hotel` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('Hotel renamedHotel2')
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 4, column: 12] (through reference chain: dk.lyngby.dto.RoomDto["hotel"])
+21:13:21.454 [JettyServerThreadPool-42] ERROR dk.lyngby.controller.RoomController - 400Cannot construct instance of `dk.lyngby.model.Hotel` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('Hotel renamedHotel2')
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 4, column: 12] (through reference chain: dk.lyngby.dto.RoomDto["hotel"])
+21:13:39.875 [JettyServerThreadPool-38] ERROR dk.lyngby.controller.RoomController - 400Cannot construct instance of `dk.lyngby.model.Hotel` (although at least one Creator exists): no int/Int-argument constructor/factory method to deserialize from Number value (1)
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 4, column: 12] (through reference chain: dk.lyngby.dto.RoomDto["hotel"])

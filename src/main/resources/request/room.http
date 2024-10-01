@@ -1,0 +1,8 @@
+POST{{URL}}/room
+Content-Type: application/json
+
+{
+  "number": 12,
+  "price": 100,
+  "hotelId": 1
+}

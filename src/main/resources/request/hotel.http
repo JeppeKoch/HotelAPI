@@ -1,0 +1,35 @@
+GET {{URL}}/hotel
+###
+GET {{URL}}/hotel/1
+###
+POST {{URL}}/hotel/
+Content-Type: application/json
+
+{
+  "name": "California",
+  "address": "101",
+  "rooms": [
+    {
+      "hotelId": 1,
+      "number": "101",
+      "price": 100.0
+    },
+    {
+      "hotelId": 1,
+      "number": "102",
+      "price": 150.0
+    }
+  ]
+}
+
+###
+
+PUT {{URL}}/hotel/4
+Content-Type: application/json
+
+{
+"name": "Hotel renamedHotel2",
+"address": "Address 1"
+}
+
+
