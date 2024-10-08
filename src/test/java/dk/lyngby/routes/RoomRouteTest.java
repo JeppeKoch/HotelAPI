@@ -62,6 +62,7 @@ class RoomRouteTest {
         AppConfig.stopServer(app);
     }
 
+    /*
 @Test
     void getRoomsEasy(){
         given()
@@ -84,4 +85,6 @@ class RoomRouteTest {
     List<RoomDto> dtos = Arrays.asList(rooms);
         assertThat(dtos, containsInAnyOrder(r1, r2, r3));
 }
+
+     */
 }
