@@ -6,6 +6,7 @@ import dk.lyngby.exception.ApiException;
 import dk.lyngby.model.Hotel;
 import dk.lyngby.model.Message;
 import io.javalin.http.Context;
+import io.javalin.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,19 +43,10 @@ public class HotelController implements IController {
     @Override
     public void create(Context ctx) {
         try {
-            // == request ==
+
             HotelDto hotelDto = ctx.bodyAsClass(HotelDto.class);
-
-            if (hotelDto == null){
-                ctx.status(400);
-                ctx.json(new Message(400, "Invalid request"));
-                return;
-            }
-
-
-            // == querying ==
-            Hotel newHotel = new Hotel(hotelDto);
-            hotelDao.create(newHotel);
+            ctx.status(HttpStatus.CREATED);
+            ctx.json(hotelDao.create(hotelDto));
 
             // == response ==
             ctx.res().setStatus(201);

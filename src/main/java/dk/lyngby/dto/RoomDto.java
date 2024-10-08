@@ -34,6 +34,13 @@ public class RoomDto {
         this.hotel = room.getHotel();
     }
 
+    public RoomDto(int hotelId, int number, double price) {
+        this.hotelId = hotelId;
+        this.number = number;
+        this.price = price;
+    }
+
+
     public static List<RoomDto> toRoomDTOList(List<Room> rooms) {
         return rooms.stream().map(RoomDto::new).toList();
     }

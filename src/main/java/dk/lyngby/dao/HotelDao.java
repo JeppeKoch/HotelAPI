@@ -34,15 +34,14 @@ public class HotelDao implements IDAO<Hotel> {
         }
     }
 
-    @Override
-    public void create(Hotel hotel) {
-        try (var em = emf.createEntityManager()) {
+
+    public HotelDto create(HotelDto hotelDto) {
+        try(EntityManager em = emf.createEntityManager()){
             em.getTransaction().begin();
-            if (hotel.getId() != null) {
-                em.merge(hotel);
-            }
+            Hotel hotel = new Hotel(hotelDto);
             em.persist(hotel);
             em.getTransaction().commit();
+            return new HotelDto(hotel);
         }
     }
 
@@ -50,7 +49,7 @@ public class HotelDao implements IDAO<Hotel> {
     public void update(Hotel hotel, Hotel updateHotel) {
         try (var em = emf.createEntityManager()) {
             em.getTransaction().begin();
-           Hotel existingHotel =  em.find(Hotel.class, hotel.getId());
+            Hotel existingHotel =  em.find(Hotel.class, hotel.getId());
             existingHotel.setName(updateHotel.getName());
             existingHotel.setAddress(updateHotel.getAddress());
             existingHotel.setRooms(updateHotel.getRooms());
@@ -71,7 +70,7 @@ public class HotelDao implements IDAO<Hotel> {
 
 
     public List<Room> allRoomsForSpecificHotel(long hotelId) {
-       {
+        {
             try (var em = emf.createEntityManager()) {
                 return em.createQuery("SELECT r FROM Room r WHERE r.hotel.id = :hotelId", Room.class)
                         .setParameter("hotelId", hotelId)

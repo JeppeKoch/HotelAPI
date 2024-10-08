@@ -22,7 +22,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class HotelDto {
 
-    private long id;
+    private Long id;
     private String name;
     private String address;
 
@@ -35,6 +35,12 @@ public class HotelDto {
        for (Room room : hotel.getRooms()) {
            rooms.add(room);
        }
+   }
+
+   public HotelDto(long id, String name, String address) {
+       this.id = id;
+       this.name = name;
+         this.address = address;
    }
 
        public static List<HotelDto> toHotelDTOList(List<Hotel> hotels) {

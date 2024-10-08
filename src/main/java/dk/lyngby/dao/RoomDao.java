@@ -13,54 +13,53 @@ import java.util.List;
  *
  * @author: Jeppe Koch
  */
-public class RoomDao implements IDAO<Room> {
+public class RoomDao {
     EntityManagerFactory emf;
     public RoomDao(EntityManagerFactory emf) {
         this.emf = emf;
 
     }
-    @Override
+
     public List<Room> getAll() {
         try (var em = emf.createEntityManager()) {
-            return em.createQuery("SELECT d FROM Room d", Room.class).getResultList();
+            return em.createQuery("SELECT new dk.lyngby.dto.RoomDto(d) FROM Room d", Room.class).getResultList();
         }
     }
 
-    @Override
-    public Room getById(long id) {
+
+    public RoomDto getById(long id) {
         try (var em = emf.createEntityManager()) {
-            return em.find(Room.class, id);
+            return em.find(RoomDto.class, id);
         }
     }
 
-    @Override
-    public void create(Room room) {
+
+    public RoomDto create(RoomDto roomDto) {
         try (var em = emf.createEntityManager()) {
+            Room room = new Room(roomDto);
             em.getTransaction().begin();
             em.persist(room);
             em.getTransaction().commit();
+            return new RoomDto(room);
         }
     }
 
-    @Override
-    public void update(Room room, Room updateRoom) {
+
+    public RoomDto update(RoomDto roomDto) {
         try (var em = emf.createEntityManager()) {
+            Room room = new Room(roomDto);
             em.getTransaction().begin();
-            room.setId(updateRoom.getId());
-            room.setHotel(updateRoom.getHotel());
-            room.setPrice(updateRoom.getPrice());
-            room.setHotelId(updateRoom.getHotelId());
-            room.setNumber(updateRoom.getNumber());
-            em.merge(room);
+            Room updatedRoom = em.merge(room);
             em.getTransaction().commit();
+            return new RoomDto(updatedRoom);
         }
     }
 
-    @Override
+
     public void delete(long id) {
         try (var em = emf.createEntityManager()) {
             em.getTransaction().begin();
-            Room room = em.find(Room.class, id);
+            RoomDto room = em.find(RoomDto.class, id);
             em.remove(room);
             em.getTransaction().commit();
         }

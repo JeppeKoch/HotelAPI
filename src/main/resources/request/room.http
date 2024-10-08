@@ -6,3 +6,6 @@ Content-Type: application/json
   "price": 100,
   "hotelId": 1
 }
+
+###
+GET{{URL}}/room

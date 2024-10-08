@@ -7,6 +7,7 @@ import dk.lyngby.routes.Routes;
 import dk.lyngby.util.ApiProps;
 import io.javalin.Javalin;
 import io.javalin.config.JavalinConfig;
+import jakarta.persistence.EntityManagerFactory;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +16,7 @@ import org.slf4j.LoggerFactory;
 public class AppConfig {
 
    private static final ExceptionController exceptionController = new ExceptionController();
-   private static final Routes routes = new Routes();
+   private static Routes routes;
    private static final Logger log = LoggerFactory.getLogger(AppConfig.class);
 
    private static void configuration(JavalinConfig config){
@@ -32,11 +33,15 @@ public class AppConfig {
        app.exception(Exception.class, exceptionController::exceptionHandler);
    }
 
-    public static void startServer(){
+    public static Javalin startServer(int port, EntityManagerFactory emf) {
+        routes = new Routes(emf);
         var app = Javalin.create(AppConfig::configuration);
-        setExceptionController(app);
-        app.start(ApiProps.PORT);
-        log.info("Server started on port {}", ApiProps.PORT);
+        app.start(port);
+        return app;
+    }
+
+    public static void stopServer(Javalin app) {
+        app.stop();
     }
 
 }

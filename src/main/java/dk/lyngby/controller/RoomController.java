@@ -3,9 +3,10 @@ package dk.lyngby.controller;
 import dk.lyngby.dao.RoomDao;
 import dk.lyngby.dto.RoomDto;
 import dk.lyngby.exception.ApiException;
-import dk.lyngby.model.Message;
+
 import dk.lyngby.model.Room;
 import io.javalin.http.Context;
+import io.javalin.http.HttpStatus;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,11 +29,10 @@ public class RoomController implements IController{
     public void getById(Context ctx) {
         try {
             long id = Long.parseLong(ctx.pathParam("id"));
-            Room room = roomDao.getById(id);
+            RoomDto room = roomDao.getById(id);
 
-            RoomDto roomDto = new RoomDto(room);
             ctx.res().setStatus(200);
-            ctx.json(roomDto, RoomDto.class);
+            ctx.json(room, RoomDto.class);
         } catch (Exception e) {
             log.error("400{}",e.getMessage());
             throw new ApiException(400, e.getMessage());
@@ -42,20 +42,10 @@ public class RoomController implements IController{
     @Override
     public void create(Context ctx) {
         try {
-            // == request ==
+
             RoomDto roomDto = ctx.bodyAsClass(RoomDto.class);
-
-            if (roomDto == null){
-                ctx.status(400);
-                ctx.json(new Message(400, "Invalid request"));
-                return;
-            }
-
-            // == querying ==
-            Room newRoom = new Room(roomDto);
-            roomDao.create(newRoom);
-
-            // == response ==
+            ctx.status(HttpStatus.CREATED);
+            ctx.json(roomDao.create(roomDto));
             ctx.res().setStatus(201);
         } catch (Exception e) {
             log.error("400{}",e.getMessage());
@@ -70,8 +60,8 @@ public class RoomController implements IController{
             RoomDto roomDto = ctx.bodyAsClass(RoomDto.class);
 
             // == querying ==
-            Room room = roomDao.getById(id);
-            roomDao.update(room, new Room(roomDto));
+            RoomDto room = roomDao.getById(id);
+            roomDao.update(roomDto);
 
             // == response ==
             ctx.res().setStatus(200);
@@ -87,10 +77,10 @@ public class RoomController implements IController{
             long id = Long.parseLong(ctx.pathParam("id"));
 
             // == querying ==
-            Room room = roomDao.getById(id);
+            RoomDto roomDto = roomDao.getById(id);
 
             // == response ==
-            roomDao.delete(id);
+            roomDao.delete(roomDto.getId());
             ctx.res().setStatus(204);
         } catch (Exception e) {
             log.error("400{}",e.getMessage());

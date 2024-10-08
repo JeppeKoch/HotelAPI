@@ -1,1 +1,37 @@
-09:17:23.004 [main] INFO  dk.lyngby.config.AppConfig - Server started on port 7777
+09:26:10.086 [main] INFO  dk.lyngby.config.AppConfig - Server started on port 7777
+09:26:17.941 [JettyServerThreadPool-45] ERROR d.lyngby.controller.HotelController - 400Cannot invoke "jakarta.persistence.EntityManagerFactory.createEntityManager()" because "this.emf" is null
+10:09:25.365 [JettyServerThreadPool-42] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:10:07.698 [JettyServerThreadPool-36] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:11:35.260 [JettyServerThreadPool-37] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:13:52.557 [JettyServerThreadPool-38] ERROR d.lyngby.controller.HotelController - 400Cannot invoke "dk.lyngby.model.Hotel.getId()" because "hotel" is null
+10:13:54.136 [JettyServerThreadPool-39] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:16:28.451 [JettyServerThreadPool-45] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:17:06.584 [JettyServerThreadPool-45] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:17:58.944 [JettyServerThreadPool-44] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:23:44.607 [JettyServerThreadPool-42] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:27:34.772 [JettyServerThreadPool-37] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:27:40.555 [JettyServerThreadPool-39] ERROR dk.lyngby.controller.RoomController - 400could not execute statement [ERROR: relation "room" does not exist
+  Position: 50] [/* insert for dk.lyngby.model.Room */insert into room (hotel_id,hotelId,number,price) values (?,?,?,?) returning id]
+10:27:43.200 [JettyServerThreadPool-36] ERROR dk.lyngby.controller.RoomController - 400JDBC exception executing SQL [/* SELECT d FROM Room d */ select r1_0.id,r1_0.hotel_id,r1_0.hotelId,r1_0.number,r1_0.price from room r1_0] [ERROR: relation "room" does not exist
+  Position: 98] [n/a]
+10:27:44.941 [JettyServerThreadPool-41] ERROR dk.lyngby.controller.RoomController - 400could not execute statement [ERROR: relation "room" does not exist
+  Position: 50] [/* insert for dk.lyngby.model.Room */insert into room (hotel_id,hotelId,number,price) values (?,?,?,?) returning id]
+10:28:51.360 [JettyServerThreadPool-41] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:29:28.771 [JettyServerThreadPool-40] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:29:33.040 [JettyServerThreadPool-41] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:29:42.664 [JettyServerThreadPool-38] ERROR d.lyngby.controller.HotelController - 400Cannot invoke "dk.lyngby.model.Hotel.getId()" because "hotel" is null
+10:29:46.798 [JettyServerThreadPool-44] ERROR d.lyngby.controller.HotelController - 400Cannot invoke "dk.lyngby.model.Hotel.getId()" because "hotel" is null
+10:32:18.471 [JettyServerThreadPool-39] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:41:39.044 [JettyServerThreadPool-43] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:41:57.267 [JettyServerThreadPool-38] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:43:59.155 [JettyServerThreadPool-45] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:44:41.445 [JettyServerThreadPool-45] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:52:17.234 [JettyServerThreadPool-45] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:52:31.872 [JettyServerThreadPool-45] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:52:51.782 [JettyServerThreadPool-43] ERROR d.lyngby.controller.HotelController - 400detached entity passed to persist: dk.lyngby.model.Hotel
+10:59:12.790 [JettyServerThreadPool-43] ERROR d.lyngby.controller.HotelController - 400Hotel id must be provided
+11:01:38.958 [JettyServerThreadPool-37] ERROR d.lyngby.controller.HotelController - 400Hotel id must be provided
+11:01:42.076 [JettyServerThreadPool-39] ERROR d.lyngby.controller.HotelController - 400Hotel id must be provided
+11:02:11.921 [JettyServerThreadPool-42] ERROR d.lyngby.controller.HotelController - 400Hotel id must be provided
+12:23:46.360 [JettyServerThreadPool-40] ERROR dk.lyngby.controller.RoomController - 400class dk.lyngby.dto.RoomDto cannot be cast to class dk.lyngby.model.Room (dk.lyngby.dto.RoomDto and dk.lyngby.model.Room are in unnamed module of loader 'app')
+12:23:47.713 [JettyServerThreadPool-37] ERROR dk.lyngby.controller.RoomController - 400class dk.lyngby.dto.RoomDto cannot be cast to class dk.lyngby.model.Room (dk.lyngby.dto.RoomDto and dk.lyngby.model.Room are in unnamed module of loader 'app')
